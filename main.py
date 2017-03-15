@@ -49,7 +49,7 @@ class Budget():
     
     """
     The following line of code is a workaround of the fact that shelve objects can not store dictionaries.
-    I have programmed it so that all the types will be in a single string, seperated by the fron-slash(/).
+    I have programmed it so that all the budget category 'types' will be in a single string, seperated by the front-slash(/).
     When the need arises, this program will split the string and use the resulting data accordingly.
     """
     appData['types'] = "/".join(self.types)
@@ -162,9 +162,8 @@ else:
 
 pw("Your current balance is Rs." + str(appData['total']))
 
-
 """
-Testing portion of code, needed when-if
+Testing portion of code, needed when-if:
 user.deposit(2500)
 user.create_type("pleasure", 500)
 user.create_type("bills", 100)
