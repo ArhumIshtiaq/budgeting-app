@@ -162,7 +162,6 @@ else:
 
 pw("Your current balance is Rs." + str(appData['total']))
 
-
 """
 Testing portion of code, needed when-if
 user.deposit(2500)
