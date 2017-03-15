@@ -30,7 +30,7 @@ def printTable(table):
   for i in range(ll):
     for x in table[i]:
       if (colWidths[i] < len(x)):
-  colWidths[i] = len(x)
+        colWidths[i] = len(x)
 
   for i in range(lol):
     for x in range(ll):
@@ -49,7 +49,7 @@ class Budget():
     
     """
     The following line of code is a workaround of the fact that shelve objects can not store dictionaries.
-    I have programmed it so that all the budget category 'types' will be in a single string, seperated by the front-slash(/).
+    I have programmed it so that all the types will be in a single string, seperated by the fron-slash(/).
     When the need arises, this program will split the string and use the resulting data accordingly.
     """
     appData['types'] = "/".join(self.types)
@@ -152,18 +152,19 @@ else:
 
     #Deleting data that this script may have unintentionally created while checking for username against shelve data
     try:
-    os.unlink(os.path.abspath(os.curdir)+r"\fad"+name+".dat")
-    os.unlink(os.path.abspath(os.curdir)+r"\fad"+name+".dir")
-    os.unlink(os.path.abspath(os.curdir)+r"\fad"+name+".bak")
+      os.unlink(os.path.abspath(os.curdir)+r"\fad"+name+".dat")
+      os.unlink(os.path.abspath(os.curdir)+r"\fad"+name+".dir")
+      os.unlink(os.path.abspath(os.curdir)+r"\fad"+name+".bak")
     except FileNotFoundError:
-    pass
+      pass
     
     quit()
 
 pw("Your current balance is Rs." + str(appData['total']))
 
+
 """
-Testing portion of code, needed when-if:
+Testing portion of code, needed when-if
 user.deposit(2500)
 user.create_type("pleasure", 500)
 user.create_type("bills", 100)
@@ -186,26 +187,25 @@ try:
       user.withdraw(int(cc[1]))
 
     elif (main == "summary"):
-    tp = [["TOTAL", ":", str(appData['total'])]]
-    types = appData['types'].split('/')
+      tp = [["TOTAL", ":", str(appData['total'])]]
+      types = appData['types'].split('/')
 
-    #Loop for creating data stucture (list of lists) to provide printTable() fucntion with an argument
-    for i in types:
-      ts = []
-      ts.append(i.upper())
-      ts.append(":")
-      ts.append(str(appData[i]))
-      tp.append(ts)
-    printTable(list(zip(*tp)))
+      #Loop for creating data stucture (list of lists) to provide printTable() fucntion with an argument
+      for i in types:
+        ts = []
+        ts.append(i.upper())
+        ts.append(":")
+        ts.append(str(appData[i]))
+        tp.append(ts)
+
+        printTable(list(zip(*tp)))
 
     elif (main == "exit" or main == "quit"):
-      s = sure()
-
-      if (s == False):
-  pw("Thank you for using this budgeting software. See you next time, " + name + ". Bye!")
-  time.sleep(1)
-  appData.close()
-  quit()
+      if (sure() == False):
+        pw("Thank you for using this budgeting software. See you next time, " + name + ". Bye!")
+        time.sleep(1)
+        appData.close()
+        quit()
 
 except Exception as error:
   pw("Sorry, a" + error + "error occured. I am saving your work and quitting the program...")
