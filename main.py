@@ -6,7 +6,6 @@
 # 1. Convert data storage to CSV
 # 2. Add interface with Tkinter
 # 3. Convert data storage to SQL
-#
 
 import os
 import time
