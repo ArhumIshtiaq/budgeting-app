@@ -51,8 +51,7 @@ def main():
 # Asking for name and password to check against database
 def getNameAndPass():
   name = input('Hi! What is your name?\nName:  ').lower()
-  password = input(
-      '\nHi ' + name[0].upper() + name[1:] + "! May I have you password as well?\nPassword:  ")
+  password = input('\nHi ' + name[0].upper() + name[1:] + "! May I have you password as well?\nPassword:  ")
   return name, password
 
 def checkOrCreateData(name, password):
